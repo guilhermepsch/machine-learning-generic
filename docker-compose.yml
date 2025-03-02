@@ -10,8 +10,7 @@ services:
         environment:
             - ENV=production
             - PYTHONPATH=/app
-
-
+            
     predict:
         build:
             context: .
