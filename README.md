@@ -13,6 +13,7 @@ This is a generic machine learning project made for the specific purpose of havi
   
 - **predict**:
   - The `predict` container runs a simple Flask application with an HTML form. The form allows for manual data input that is then predicted according to the latest trained model.
+  - The default URL for the `predict` service is `127.0.0.1:5000`.
 
 ## Project Structure
 
