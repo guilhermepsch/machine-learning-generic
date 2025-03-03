@@ -2,11 +2,13 @@
 
 ## 1. Processamento de Dados
 
-### Análise do Gráfico Gerado por Síndrome
+### Análise do Gráfico de Imagem por Síndrome
 
 De acordo com o gráfico gerado em imagens por sindrome, é possivel notar que de fato existem duas sindromes que possuem muito mais imagens que o resto das outras do dataset.
 
 É claro que os dados poderiam estar melhor balanceados, nao acredito que isso cause um problema tão grande visto que os dois são os unicos dentre os 8 que estao mais normalizados.
+
+![Gráfico de Imagem por Síndrome](artifacts/images_per_syndrome_distribution.png)
 
 ## 2. Visualização de Dados
 
@@ -19,5 +21,7 @@ Uma evidência que poderia apoiar essa teoria é o fato de que os clusters de pr
 O cluster mais caótico é o relacionado a sindrome 700018215, que coincidentemente é aquele que possui uma das menores presenças no dataset.
 
 No geral, o gráfico t-SNE conseguiu realizar a clusterização de forma eficaz, alocando a maioria dos dados corretamente em seus devidos clusters.
+
+![Gráfico de Imagem por Síndrome](artifacts/tsne_plot.png)
 
 ## 3. Classificação
