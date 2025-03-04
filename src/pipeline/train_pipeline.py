@@ -1,5 +1,6 @@
 import sys
 from src.components.data_transformation import DataTransformation
+from src.components.data_visualization import DataVisualization
 from src.components.model_evaluation import ModelEvaluation
 from src.components.model_trainer import ModelTrainer
 from src.components.data_ingestion import DataIngestion
@@ -10,11 +11,21 @@ def main():
     try:
         logging.info("Starting Data Ingestion")
         data_ingestion = DataIngestion()
-        train_data, test_data = data_ingestion.initiate_data_ingestion()
+        df, train_data, test_data = data_ingestion.initiate_data_ingestion()
 
         logging.info(f"Train data: {train_data}, Test data: {test_data}")
     except Exception as e:
         raise CustomException(f"Error in Data Ingestion: {str(e)}", sys)
+
+    try:
+        logging.info("Starting Data Visualization")
+        data_visualization = DataVisualization()
+        feature_columns = [f'dim_{i}' for i in range(320)]
+        data_visualization.visualize_data(data=df, feature_columns=feature_columns)
+
+        logging.info(f"Train data: {train_data}, Test data: {test_data}")
+    except Exception as e:
+        raise CustomException(f"Error in Data Visualization: {str(e)}", sys)
 
     try:
         logging.info("Starting Data Transformation")
@@ -39,9 +50,9 @@ def main():
         model_evaluation = ModelEvaluation()
         model_evaluation.evaluate_models(X_train, y_train, X_test, y_test, model, params, model_path)
 
-        logging.info(f"Model Training Completed")
+        logging.info(f"Model Training Evaluation")
     except Exception as e:
-        raise CustomException(f"Error in Model Training: {str(e)}", sys)
+        raise CustomException(f"Error in Model Evaluation: {str(e)}", sys)
 
 if __name__ == "__main__":
     main()

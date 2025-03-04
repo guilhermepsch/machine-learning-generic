@@ -53,6 +53,7 @@ class DataIngestion:
         logging.info("Ingestion of the data is completed")
 
         return (
+            df,
             train_set,
             test_set,
         )

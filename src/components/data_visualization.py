@@ -24,7 +24,7 @@ class DataVisualization:
             df_tsne = self.apply_tsne(data, feature_columns)
             df_tsne[hue_column] = data[hue_column].values
             self.plot_tsne(df_tsne, hue_column)
-            self.plot_images_per_syndrome_distribution(df, syndrome_column='syndrome_id')
+            self.plot_images_per_syndrome_distribution(data, syndrome_column='syndrome_id')
             logging.info("Data visualization completed successfully")
         except Exception as e:
             raise CustomException(f"Error in data visualization: {str(e)}", sys)
@@ -99,13 +99,3 @@ class DataVisualization:
             logging.info(f"Images per syndrome distribution plot saved at {self.visualization_config.distribution_output_path}")
         except Exception as e:
             raise CustomException(f"Error in plotting the distribution of images per syndrome: {str(e)}", sys)
-
-if __name__ == "__main__":
-    try:
-        df = pd.read_csv('artifacts/data.csv')
-        obj = DataVisualization()
-        feature_columns = [f'dim_{i}' for i in range(320)]
-        obj.visualize_data(df, feature_columns)
-    
-    except Exception as e:
-        logging.error(f"Error in the main execution: {str(e)}")

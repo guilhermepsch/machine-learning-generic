@@ -95,9 +95,6 @@ class ModelEvaluation:
     except Exception as e:
         raise CustomException(f"Error in plotting ROC curve: {str(e)}", sys)
 
-
-
-
   def save_metrics_table(self, report):
     try:
         logging.info("Saving metrics table")
