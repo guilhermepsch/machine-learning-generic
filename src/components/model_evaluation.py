@@ -48,6 +48,9 @@ class ModelEvaluation:
                 'top_k_acc': top_k_acc,
             }
             
+            logging.info(f"Best {metric} model found")
+            logging.info(f"{metric} parameters: {model.get_params()}")
+            
             save_object(
                 file_path=os.path.join(model_path, f"{metric}_model.pkl"),
                 obj=model
