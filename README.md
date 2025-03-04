@@ -1,5 +1,5 @@
 
-# Machine Learning Generic
+# Machine Learning - Junior Test
 
 This is a project made for the specific purpose of trying for a position as a Junior Deep Learning Engineer.
 
@@ -10,6 +10,7 @@ This is a project made for the specific purpose of trying for a position as a Ju
     - A `.pkl` file of the trained model.
     - Preprocessor `.pkl` file that contains configuration for data intended for prediction after training.
     - Two CSVs (`test.csv`, `train.csv` and `data.csv`) derived from the `data.pkl` file located in the `artifact` folder.
+    - A CSV of metrics of trained models.
     - Several images in `.png` format that show visualization of data, and evaluations of both trained models.
 
 ## Project Structure
@@ -18,7 +19,7 @@ This is a project made for the specific purpose of trying for a position as a Ju
 project/
 ├── src/
 │   ├── pipeline/
-│   │   └── train_pipeline.py    # Training pipeline script
+│   │   └── train_pipeline.py    # Training pipeline script, this is the runnable one.
 │   ├── components/              # Steps to train the model, separated by usage
 │   ├── logger.py                # Logging configuration
 │   ├── exception.py             # Custom Exception class
@@ -41,8 +42,9 @@ Before running the project, make sure you have the following installed on your m
 
 ### **Alternative**
 
+- **[Git](https://git-scm.com/)**
 - **[Python 3.8+](https://www.python.org/downloads/release/python-380/)**
-- **[Conda](https://docs.conda.io/projects/conda/en/latest/index.html)**
+- **[Conda (Optional)](https://docs.conda.io/projects/conda/en/latest/index.html)**
 
 > **Note**: The project can be run with or without Docker, but it is strongly recommended to run the Dockerized application as it minimizes setup time and execution to just 2 or 3 commands. Also prevents the need to install languages, tools and dependencies locally on your machine.
 
