@@ -9,6 +9,7 @@ from src.exception import CustomException
 from src.logger import logging
 from dataclasses import dataclass
 
+@dataclass
 class DataVisualizationConfig:
     plot_output_path: str = os.path.join('artifacts', 'tsne_plot.png')
     distribution_output_path: str = os.path.join('artifacts', 'images_per_syndrome_distribution.png')

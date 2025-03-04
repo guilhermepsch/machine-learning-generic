@@ -1,6 +1,6 @@
-import os
 import sys
 from src.components.data_transformation import DataTransformation
+from src.components.model_evaluation import ModelEvaluation
 from src.components.model_trainer import ModelTrainer
 from src.components.data_ingestion import DataIngestion
 from src.exception import CustomException
@@ -28,9 +28,18 @@ def main():
     try:
         logging.info("Starting Model Training")
         model_trainer = ModelTrainer()
-        r2_score = model_trainer.initiate_model_trainer(train_arr, test_arr)
+        X_train, y_train, X_test, y_test, model, params, model_path = model_trainer.initiate_model_trainer(train_arr, test_arr)
 
-        logging.info(f"Model Training completed with R2 Score: {r2_score}")
+        logging.info(f"Model Training Completed")
+    except Exception as e:
+        raise CustomException(f"Error in Model Training: {str(e)}", sys)
+    
+    try:
+        logging.info("Starting Model Evaluation")
+        model_evaluation = ModelEvaluation()
+        model_evaluation.evaluate_models(X_train, y_train, X_test, y_test, model, params, model_path)
+
+        logging.info(f"Model Training Completed")
     except Exception as e:
         raise CustomException(f"Error in Model Training: {str(e)}", sys)
 

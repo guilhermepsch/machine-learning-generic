@@ -10,17 +10,3 @@ services:
         environment:
             - ENV=production
             - PYTHONPATH=/app
-            
-    predict:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        container_name: predict-model-generic
-        volumes:
-            - .:/app
-        entrypoint: python app.py
-        ports:
-            - '5000:5000'
-        environment:
-            - ENV=production
-            - PYTHONPATH=/app
